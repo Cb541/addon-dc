@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: nuvio-dc-addon
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start:server
+    healthCheckPath: /manifest.json
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TMDB_API_KEY
+        sync: false
+      - key: OMDB_API_KEY
+        sync: false
